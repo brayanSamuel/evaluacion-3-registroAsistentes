@@ -3,6 +3,7 @@
 	<name>AsistentesApp</name>
 	<comment></comment>
 	<projects>
+		<project>AsistentesModel</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
