@@ -12,6 +12,6 @@ public interface AsistentesDAOLocal {
 	void save(Asistente asistente);
 	List<Asistente> getAll();
 	void delete(Asistente asistente);
-	List<Asistente> filterByestado(String estado);
+	List<Asistente> filterByEstado(String estado);
 	
 }

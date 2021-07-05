@@ -23,14 +23,16 @@
 
 	<div class="columns is-centered">
 		<div class="column is-6">
-			<form method="POST" action="AgregarAsistenteController.do">
-				<div class="card">
+
+			<div class="card">
+				<form method="POST" action="AgregarAsistenteController.do">
 					<div class="card-header has-background-success">
 						<span class="card-header-title is-centered">Ingresar Participante</span>
 					</div>
 					<div class="card-content">
 						<div class="field">
-							<label class="label" for="rut-txt">Rut (sin puntos y con guion)</label>
+							<label class="label" for="rut-txt">Rut (sin puntos y con
+								guion)</label>
 							<div class="control">
 								<input type="text" class="input" id="rut-txt" name="rut-txt" />
 							</div>
@@ -51,10 +53,11 @@
 							</div>
 						</div>
 						<div class="field">
-								<label class="label" for="edad-txt">Edad (mayor o igual a 18)</label>
-								<div class="control">
-									<input type="number" class="input" name="edad-txt" id="edad-txt"/>
-								</div>
+							<label class="label" for="edad-txt">Edad (mayor o igual a
+								18)</label>
+							<div class="control">
+								<input type="number" class="input" name="edad-txt" id="edad-txt" />
+							</div>
 						</div>
 						<div class="field">
 							<label class="label" for="empresa-txt">Empresa</label>
@@ -79,7 +82,7 @@
 							<div class="control">
 								<div class="select">
 									<select name="region-select" id="region-select">
-										<option>Valparaíso</option>
+										<option>Valparaiso</option>
 										<option>Santiago</option>
 										<option>Norte de chile</option>
 										<option>Sur de Chile</option>
@@ -91,11 +94,13 @@
 					</div>
 					<div class="card-footer has-text-centered">
 						<div class="card-footer-item">
-							<button type="submit" class="button is-primary">Ingresar Solicitud</button>
+							<button type="submit" class="button is-primary">Ingresar
+								Solicitud</button>
 						</div>
 					</div>
-				</div>
-			</form>
+				</form>
+			</div>
+
 		</div>
 	</div>
 </main>

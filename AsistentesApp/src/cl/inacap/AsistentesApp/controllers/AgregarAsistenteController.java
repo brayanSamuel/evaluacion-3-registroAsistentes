@@ -94,7 +94,7 @@ public class AgregarAsistenteController extends HttpServlet {
 					
 					for(Asistente i: p) {
 						if(i.getRut().equalsIgnoreCase(rut)) {
-							errores.add("Ya hay un cliente con ese rut");
+							errores.add("Asistente ya Registrado");
 						}
 					}
 					

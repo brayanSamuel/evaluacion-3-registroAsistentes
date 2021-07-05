@@ -35,7 +35,7 @@ public class AsistentesDAO implements AsistentesDAOLocal {
 	}
 
 	@Override
-	public List<Asistente> filterByestado(String estado) {
+	public List<Asistente> filterByEstado(String estado) {
 		// TODO Auto-generated method stub
 		return asistentes.stream().filter(e->e.getEstado().contains(estado)).collect(Collectors.toList());
 	}

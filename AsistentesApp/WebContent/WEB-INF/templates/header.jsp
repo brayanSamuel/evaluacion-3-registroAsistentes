@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> Asistentes a evento</title>
+<title> Asistentes a Evento</title>
 <link href="vendor/bulma/css/bulma.min.css" rel="stylesheet"/>
 </head>
 <body>
@@ -28,7 +28,7 @@
 						<a class="navbar-item has-text-black" href="AgregarAsistenteController.do"> Registrar asistente </a>
 					</div>
 					<div class="navbar-item has-dropdown is-hoverable">
-						<a class="navbar-item has-text-black" href=""> Mostrar resumen de asistentes </a>
+						<a class="navbar-item has-text-black" href="VerAsistentesController.do"> Mostrar resumen de asistentes </a>
 
 					</div>
 		</nav>
