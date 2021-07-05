@@ -45,8 +45,8 @@
 					</tr>
 				</thead>
 				<tbody>
-				<c:if test="${asistentes != null }">
-					<c:forEach var="asistente" items="${asistentes}"> 
+				<c:if test="${asistentes.isEmpty() }">
+					<c:forEach var="asistente" items="${asistentess}"> 
 						<tr>
 							<td>${asistente.nombre} ${asistente.apellido}</td>
 							<td>${asistente.empresa}</td>
@@ -55,8 +55,8 @@
 						</tr>
 					</c:forEach>
 				</c:if>
-				<c:if test="${asistentes  = null }">
-					<c:forEach var="asistente" items="${asistentess}"> 
+				<c:if test="${asistentes != null }">
+					<c:forEach var="asistente" items="${asistentes}"> 
 						<tr>
 							<td>${asistente.nombre} ${asistente.apellido}</td>
 							<td>${asistente.empresa}</td>

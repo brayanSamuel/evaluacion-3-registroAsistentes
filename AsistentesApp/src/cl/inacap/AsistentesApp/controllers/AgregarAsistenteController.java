@@ -51,6 +51,8 @@ public class AgregarAsistenteController extends HttpServlet {
 		String rut = request.getParameter("rut-txt").trim();
 		if (rut.isEmpty()) {
 			errores.add("Debe ingresar un rut");
+		}else if(rut.length() != 10) {
+			errores.add("el rut debe tener 9 digitos en total");
 		}else {
 			List<Asistente> p = asistentesDAO.getAll();
 			int n,m,v=2,s=0,rutAux;

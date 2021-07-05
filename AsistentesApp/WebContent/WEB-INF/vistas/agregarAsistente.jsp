@@ -67,7 +67,7 @@
 							</div>
 						</div>
 						<div class="field">
-							<label class="label" for="estado-select">Estado</label>
+							<label class="label" for="estado-select">Estado de deuda</label>
 							<div class="control">
 								<div class="select">
 									<select name="estado-select" id="estado-select">
