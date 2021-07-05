@@ -2,13 +2,13 @@ package cl.inacap.AsistentesApp.controllers;
 
 import java.io.IOException;
 import java.util.List;
-
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 
 import cl.inacap.asistentesModel.dao.AsistentesDAOLocal;
@@ -36,11 +36,18 @@ public class VerAsistentesController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 
+		 String estado="";
 		
-
-		List<Asistente> asistentess=  asistentesDAO.getAll();
-		request.setAttribute("asistentess", asistentess);
+		try {
+			 estado = request.getParameter("filtro-select").trim();
+		}catch(Exception ex) {
+			estado = "";
+		}
+			
+		List<Asistente> asistentes = asistentesDAO.getAll(estado);
+		int numero=asistentesDAO.getAll().size();
+		request.setAttribute("asistentes", asistentes);
+		request.setAttribute("numero", numero);
 		
 		request.getRequestDispatcher("WEB-INF/vistas/verAsistentes.jsp").forward(request, response);
 		
@@ -51,9 +58,7 @@ public class VerAsistentesController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String estado = request.getParameter("filtro-select").trim();
-		List<Asistente> asistentes = asistentesDAO.filterByEstado(estado);
-		request.setAttribute("asistentes", asistentes);
+		
 		doGet(request, response);
 	}
 

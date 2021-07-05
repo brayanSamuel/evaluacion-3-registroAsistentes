@@ -52,17 +52,16 @@ public class AgregarAsistenteController extends HttpServlet {
 		if (rut.isEmpty()) {
 			errores.add("Debe ingresar un rut");
 		}else if(rut.length() != 10) {
-			errores.add("el rut debe tener 9 digitos en total");
+			errores.add("El rut debe tener 9 digitos en total");
 		}else {
 			List<Asistente> p = asistentesDAO.getAll();
-			int n,m,v=2,s=0,rutAux;
+			int n,m,v=2,s=0;
 			String d1;
 			String[] rutAu = rut.split("-");
 			if(rutAu[1].length()!=1) {
-				errores.add("solo puede haber un digito verificador");
+				errores.add("Solo puede haber un digito verificador");
 			}
 				try {
-					rutAux = Integer.parseInt(rutAu[0]);
 					n = rutAu[0].length();
 					
 					while(n>=1) {
@@ -82,17 +81,9 @@ public class AgregarAsistenteController extends HttpServlet {
 					break;
 					
 					}
-					if(rutAux != 0) {
-						boolean contiene =false;
-
-						if(rutAu[1].equals(d1)) {
-								contiene = true;
-							}
-						if(!contiene) {
+						if(!rutAu[1].equalsIgnoreCase(d1)) {
 							errores.add("Digito verificador inválido");
 						}
-					}
-					
 					
 					for(Asistente i: p) {
 						if(i.getRut().equalsIgnoreCase(rut)) {
@@ -107,15 +98,9 @@ public class AgregarAsistenteController extends HttpServlet {
 		
 		
 		String nombre = request.getParameter("nombre-txt").trim();
-//		String[] palabras=nombre.split(" ");
 		if (nombre.isEmpty()) {
 			errores.add("Debe ingresar un Nombre");}
-//		else {
-//			
-//			if(palabras.length< 2) {
-//				errores.add("ingrese nombre y apellido separado por un espacio");
-//			}
-//		}
+
 		String apellido = request.getParameter("apellido-txt").trim();
 		if (apellido.isEmpty()) {
 			errores.add("Debe ingresar un apellido");
@@ -151,8 +136,8 @@ public class AgregarAsistenteController extends HttpServlet {
 			asistente.setEstado(estado);
 			asistente.setRegion(region);
 			asistentesDAO.save(asistente);
-			request.setAttribute("mensaje", "persona registrada exitosamente");
-//			request.getRequestDispatcher("WEB-INF/vistas/atenderSolicitud.jsp").forward(request, response);
+			request.setAttribute("mensaje", "Persona registrada exitosamente");
+			request.getRequestDispatcher("VerAsistentesController.do").forward(request, response);
 			
 		} else {
 			request.setAttribute("errores", errores);

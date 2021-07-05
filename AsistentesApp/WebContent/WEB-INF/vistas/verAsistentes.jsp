@@ -15,58 +15,52 @@
 	</c:if>
  	<div class="columns is-centered">
 		<div class="column is-8">
-		<form method="POST" action="VerAsistentesController.do">
-			<div class="field">
-				<label class="label has-text-centered" for="filtro-select">Estado de Deuda</label>
-				<div class="control has-text-centered">
-					<div class="select">
-						<select name="filtro-select" id="filtro-select">
-							<!-- <option>Seleccione</option> -->
-							<option>Pagada</option>
-							<option>Con Deuda</option>
-						</select>
-					</div>
-					<div class="card-footer has-text-centered">
-						<div class="card-footer-item">
-							<button type="submit" class="button is-info">Filtrar</button>
+			<form method="POST" action="VerAsistentesController.do">
+				<div class="field">
+					<label class="label has-text-centered" for="filtro-select">Estado
+						de Deuda</label>
+					<div class="control has-text-centered">
+						<div class="select">
+							<select name="filtro-select" id="filtro-select">
+								<!-- <option>Seleccione</option> -->
+								<option>Pagada</option>
+								<option>Con Deuda</option>
+							</select>
+						</div>
+						<div class="card-footer has-text-centered">
+							<div class="card-footer-item">
+								<button type="submit" class="button is-info">Filtrar</button>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 
 
-			<table class="table is-hovered is-bordered is-fullwidth">
-				<thead class="has-background-primary">
-					<tr>
-						<th>Nombre Completo</th>
-						<th>Empresa</th>
-						<th>Región</th>
-						<th>Estado</th>
-					</tr>
-				</thead>
-				<tbody>
-				<c:if test="${asistentes.isEmpty() }">
-					<c:forEach var="asistente" items="${asistentess}"> 
+				<table class="table is-hovered is-bordered is-fullwidth">
+					<thead class="has-background-primary">
 						<tr>
-							<td>${asistente.nombre} ${asistente.apellido}</td>
-							<td>${asistente.empresa}</td>
-							<td>${asistente.region}</td>
-							<td>${asistente.estado}</td>
+							<th>Nombre Completo</th>
+							<th>Empresa</th>
+							<th>Región</th>
+							<th>Estado</th>
 						</tr>
-					</c:forEach>
-				</c:if>
-				<c:if test="${asistentes != null }">
-					<c:forEach var="asistente" items="${asistentes}"> 
-						<tr>
-							<td>${asistente.nombre} ${asistente.apellido}</td>
-							<td>${asistente.empresa}</td>
-							<td>${asistente.region}</td>
-							<td>${asistente.estado}</td>
-						</tr>
-					</c:forEach>
-				</c:if>
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
+						<c:forEach var="asistente" items="${asistentes}">
+							<tr>
+								<td>${asistente.nombre} ${asistente.apellido}</td>
+								<td>${asistente.empresa}</td>
+								<td>${asistente.region}</td>
+								<td>${asistente.estado}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+				<div class="columns">
+					<div class="column is-6">
+						<label>Total asistentes registrados: ${numero}</label>
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>
